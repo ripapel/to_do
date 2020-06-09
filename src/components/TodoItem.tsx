@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import { CheckBox } from "react-native-elements";
+import { globalStyles } from "../styles/globalStyles";
 
 interface TodoItemProps {
   id: number;
@@ -9,10 +10,10 @@ interface TodoItemProps {
 }
 
 const TodoItem: FC<TodoItemProps> = (props) => {
-  const { id, title, completed } = props;
+  const { title, completed } = props;
 
   return (
-    <View style={styles.todoItem}>
+    <View style={globalStyles.todoItem}>
       <CheckBox
         title=""
         checked={completed}
@@ -28,16 +29,5 @@ const TodoItem: FC<TodoItemProps> = (props) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  todoItem: {
-    flexDirection: "row",
-    paddingVertical: 5,
-    borderBottomColor: "#ddd",
-    borderBottomWidth: 1,
-    alignItems: "center",
-    color: "rgb(60, 103, 110)",
-  },
-});
 
 export default TodoItem;

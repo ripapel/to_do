@@ -5,6 +5,7 @@ import { SafeAreaView, FlatList, Text, StyleSheet } from "react-native";
 import { fetchTodos } from "../actions";
 import TodoItem from "../components/TodoItem";
 import Loader from "../components/Loader";
+import { globalStyles } from "../styles/globalStyles";
 
 const TodosList: FC = (props: any) => {
   useEffect(() => {
@@ -19,8 +20,8 @@ const TodosList: FC = (props: any) => {
   }
 
   return (
-    <SafeAreaView style={styles.tasksContainer}>
-      <Text style={styles.title}>My Tasks</Text>
+    <SafeAreaView style={globalStyles.todosContainer}>
+      <Text style={globalStyles.title}>My Tasks</Text>
       <FlatList
         data={todos}
         renderItem={({ item }) => (
@@ -36,20 +37,7 @@ const TodosList: FC = (props: any) => {
   );
 };
 
-const styles = StyleSheet.create({
-  tasksContainer: {
-    marginTop: 10,
-    marginHorizontal: 15,
-  },
-  title: {
-    fontSize: 35,
-    color: "rgb(60, 103, 110)",
-    marginBottom: 10,
-  },
-});
-
 const Todos = connect((state) => {
-  console.log(state);
   return state;
 })(TodosList);
 

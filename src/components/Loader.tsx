@@ -1,21 +1,13 @@
 import React, { FC } from "react";
-import { View, ActivityIndicator, StyleSheet } from "react-native";
+import { View, ActivityIndicator } from "react-native";
+import { globalStyles } from "../styles/globalStyles";
 
 const Loader: FC = () => {
   return (
-    <View style={styles.loaderContainer}>
+    <View style={globalStyles.loaderContainer}>
       <ActivityIndicator size="large" color="rgb(60, 103, 110)" />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  loaderContainer: {
-    flex: 1,
-    alignContent: "center",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
 export default Loader;

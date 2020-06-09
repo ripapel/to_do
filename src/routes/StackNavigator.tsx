@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../scenes/Home";
-import Todos from "../scenes/Todos";
+import Home from "../views/Home";
+import Todos from "../views/Todos";
 import { navigationRef } from "./RootNavigation";
 
 const Stack = createStackNavigator();

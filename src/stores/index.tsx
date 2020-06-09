@@ -1,20 +1,14 @@
-import "react-native-gesture-handler";
 import React from "react";
-import StackNavigator from "./src/navigation/StackNavigator";
-import reducer from "./src/reducers";
+import reducer from "../reducers";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import { watchFetchTodo } from "./src/actions";
+import { watchFetchTodo } from "../sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(watchFetchTodo);
 
-export default function App() {
-  return (
-    <Provider store={store}>
-      <StackNavigator />
-    </Provider>
-  );
+export default function Store(props: any) {
+  return <Provider store={store}>{props.children}</Provider>;
 }
